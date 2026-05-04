@@ -1,45 +1,51 @@
-# 👋 Muhammad Faiz
+import { useEffect } from "react";
+import { Navbar } from "@/components/khalifa/Navbar";
+import { Hero } from "@/components/khalifa/Hero";
+import { Marquee } from "@/components/khalifa/Marquee";
+import { Categories } from "@/components/khalifa/Categories";
+import { ProductGrid } from "@/components/khalifa/ProductGrid";
+import { Promo } from "@/components/khalifa/Promo";
+import { Testimonials } from "@/components/khalifa/Testimonials";
+import { FAQ } from "@/components/khalifa/FAQ";
+import { Contact } from "@/components/khalifa/Contact";
+import { Footer } from "@/components/khalifa/Footer";
+import { useReveal } from "@/hooks/useReveal";
 
-🎓 BS Artificial Intelligence Student  
-💻 Aspiring AI Engineer & Web Developer  
-📍 Pakistan  
+const Index = () => {
+  useReveal();
 
----
+  useEffect(() => {
+    document.title = "Khalifa Store — Premium Men's & Women's Shoes in Pakistan";
+    const setMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", content);
+    };
+    setMeta(
+      "description",
+      "Khalifa Store — hand-finished oxfords, boots, heels and loafers. Premium men's and women's shoes with nationwide delivery across Pakistan."
+    );
+  }, []);
 
-## 🚀 About Me
-I am a passionate Artificial Intelligence student with a strong interest in building modern web applications and AI-based solutions. I enjoy learning new technologies and solving real-world problems through coding.
+  return (
+    <main className="min-h-screen bg-background">
+      <Navbar />
+      <Hero />
+      <Marquee />
+      <Categories />
+      <ProductGrid />
+      <Promo />
+      <Testimonials />
+      <section id="faq"><FAQ /></section>
+      <Contact />
+      <Footer />
+    </main>
+  );
+};
 
----
+export default Index;
 
-## 🔗 My Links
-
-- 💼 LinkedIn: https://www.linkedin.com/in/muhammad-faiz-026000407  
-- 🌐 Project (Lovable): https://lovable.dev/projects/cbf51089-53bc-4c63-8648-2442f4bd389c  
-
----
-
-## 💻 Skills
-
-- Python  
-- C++  
-- HTML, CSS, JavaScript  
-- Problem Solving  
-- AI Basics  
-
----
-
-## 📌 Goals
-
-- Become a professional AI Engineer  
-- Build real-world AI projects  
-- Work on modern web applications  
-
----
-
-## 📫 Contact
-
-📧 Email: your-email-here  
-
----
-
-⭐ Don't forget to star this repository!
